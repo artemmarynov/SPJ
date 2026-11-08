@@ -1,0 +1,55 @@
+# Python environments and caches
+.venv/
+venv/
+env/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+.coverage.*
+htmlcov/
+build/
+dist/
+*.egg-info/
+
+# Downloaded models, datasets, indexes, and generated experiment outputs
+.model_cache/
+.cache/
+/cv7-cv8/data/
+/cv7-cv8/index*/
+results*/
+*.pt
+*.pth
+*.safetensors
+*.onnx
+*.npy
+*.npz
+*.joblib
+*.sqlite
+*.sqlite3
+
+# Local input datasets and reconstructed text
+/cv1-cv2/*.conllu
+/cv1-cv2/spam.csv
+/cv1-cv2/*_reconstructed.txt
+/cv3-cv4/spam.csv
+
+# Assignment screenshots
+/cv1-cv2/5330254285394091440.jpg
+/cv1-cv2/5330254285394091441.jpg
+
+# Local configuration, editor state, and temporary files
+.env
+.env.*
+!.env.example
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+*.log
+*.tmp
+*.swp
+*~
+rag-test-*/
