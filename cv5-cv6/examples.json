@@ -1,0 +1,11 @@
+{
+  "word": "bank",
+  "examples": [
+    {"sense": "finance", "sentence": "The bank approved my loan after checking my income."},
+    {"sense": "finance", "sentence": "She deposited her salary in the bank yesterday."},
+    {"sense": "finance", "sentence": "The bank offers savings accounts and credit cards."},
+    {"sense": "river", "sentence": "We sat on the bank of the river and watched the water."},
+    {"sense": "river", "sentence": "The fisherman stood on the bank beside the flowing river."},
+    {"sense": "river", "sentence": "After the flood, mud covered the bank of the stream."}
+  ]
+}
