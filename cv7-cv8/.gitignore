@@ -1,0 +1,6 @@
+data/
+index*/
+results*/
+rag-test-*/
+__pycache__/
+.venv/
