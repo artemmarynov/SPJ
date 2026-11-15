@@ -8,6 +8,7 @@ Python coursework for SPJ at TUKE. Each exercise has its own dependency files an
 | [cv3-cv4](cv3-cv4/) | TF-IDF, retrieval, LSI, Word2Vec, CNN, RNN, LSTM |
 | [cv5-cv6](cv5-cv6/) | Contextual word embeddings with pretrained DistilBERT |
 | [cv7-cv8](cv7-cv8/) | Local RAG with Ollama and Slovak Wikipedia |
+| [cv9-cv10](cv9-cv10/) | Whisper transcription, audio RAG, WER/CER evaluation |
 
 Use Python 3.14 and create a local environment:
 
