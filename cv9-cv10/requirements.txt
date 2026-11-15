@@ -1,0 +1,6 @@
+-r ../cv7-cv8/requirements.txt
+torch==2.14.1
+transformers==5.20.2
+scipy==1.18.1
+soundfile==0.14.0
+jiwer==4.0.0

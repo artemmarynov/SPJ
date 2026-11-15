@@ -164,7 +164,7 @@ def chunks_for_document(document, size=250, overlap=50):
     for start in range(0, len(words), size - overlap):
         end = min(start + size, len(words))
         left, right = words[start].start(), words[end - 1].end()
-        yield {"chunk_id": f"{document['doc_id']}:{start:06d}-{end:06d}", "doc_id": document["doc_id"],
+        yield {**document, "chunk_id": f"{document['doc_id']}:{start:06d}-{end:06d}", "doc_id": document["doc_id"],
                "title": document["title"], "url": document["url"], "word_start": start,
                "word_end": end, "char_start": left, "char_end": right,
                "text": document["text"][left:right]}

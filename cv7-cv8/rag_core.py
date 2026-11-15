@@ -142,12 +142,12 @@ class EmbeddingCache:
         return [item for index in range(len(chunks)) for item in results[index]]
 
 
-def build_index(client, directory, size=250, overlap=50, batch_size=32, rebuild=False):
+def build_index(client, directory, size=250, overlap=50, batch_size=32, rebuild=False, documents_path=None):
     directory = Path(directory)
     if batch_size < 1:
         raise ValueError("batch-size must be positive.")
     models = client.models()
-    source = DATA / "documents.jsonl"
+    source = Path(documents_path) if documents_path is not None else DATA / "documents.jsonl"
     if not source.exists():
         raise ValueError("Prepared documents are missing. Run: python rag.py prepare")
     documents = list(read_jsonl(source))
@@ -208,18 +208,19 @@ def build_index(client, directory, size=250, overlap=50, batch_size=32, rebuild=
 
 
 class KnowledgeBase:
-    def __init__(self, client, directory):
+    def __init__(self, client, directory, documents_path=None):
         self.client = client
         self.directory = Path(directory)
         self.state = json.loads((self.directory / "state.json").read_text(encoding="utf-8"))
         if not self.state["complete"]:
             raise ValueError("The index is incomplete. Resume: python rag.py index")
-        if file_hash(DATA / "documents.jsonl") != self.state["configuration"]["documents_sha256"]:
+        source = Path(documents_path) if documents_path is not None else DATA / "documents.jsonl"
+        if file_hash(source) != self.state["configuration"]["documents_sha256"]:
             raise ValueError("The prepared corpus changed. Rebuild the index.")
         self.models = client.models()
         if self.models[EMBEDDER]["digest"] != self.state["configuration"]["embedding_digest"]:
             raise ValueError("The embedding model changed. Rebuild the index.")
-        self.documents = list(read_jsonl(DATA / "documents.jsonl"))
+        self.documents = list(read_jsonl(source))
         self.chunks = list(read_jsonl(self.directory / "chunks.jsonl"))
         self.vectors = np.load(self.directory / "vectors.npy", mmap_mode="r")
         self.baseline = joblib.load(self.directory / "document_tfidf.joblib")

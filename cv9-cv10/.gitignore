@@ -1,0 +1,7 @@
+data/
+models/
+index*/
+results*/
+input/*.wav
+input/*.flac
+__pycache__/

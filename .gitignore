@@ -19,6 +19,11 @@ dist/
 .cache/
 /cv7-cv8/data/
 /cv7-cv8/index*/
+/cv9-cv10/data/
+/cv9-cv10/models/
+/cv9-cv10/index*/
+/cv9-cv10/input/*.wav
+/cv9-cv10/input/*.flac
 results*/
 *.pt
 *.pth
